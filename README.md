@@ -1,16 +1,33 @@
-# skartner_app
+## tutorial followed
 
-A new Flutter project.
+[https://www.youtube.com/watch?v=WvGHJef7O-g](https://www.youtube.com/watch?v=WvGHJef7O-g)
 
-## Getting Started
+this app demonstrates the use of riverpod package to manage global state.
 
-This project is a starting point for a Flutter application.
+## instructions to run app
 
-A few resources to get you started if this is your first Flutter project:
+there are certain scripts contained in pubspec.yaml file
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```yml
+scripts:
+  build: flutter pub run build_runner build --delete-conflicting-outputs
+  watch: flutter pub run build_runner watch
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+these scripts help create compiled files, for that we need to install flutter_scripts globally
+`dart pub global activate flutter_scripts`
+then run
+`export PATH="$PATH":"$HOME/.pub-cache/bin"`
+to ensure flutter_scripts is available in the terminal
+`flutter_scripts run` will allow us to choose the script to run, currently pubspec.yaml file contains 2, build and watch, build is used for compiling once and watch to keep watching and compiling, (note: watch doesn't works perfectly)
+
+to ignore the compiled files (so that they are not visible in the vscode editor) we provided following config to .vscode/lanch.json
+
+```json
+{
+  "files.exclude": {
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true
+  }
+}
+```
